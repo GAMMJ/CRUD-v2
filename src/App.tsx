@@ -1,11 +1,25 @@
 import { Routes, Route } from 'react-router'
+import { useAuth } from '@/hooks/useAuth'
+import { ProtectedRoute } from '@/routes/ProtectedRoute'
+import HomePage from '@/pages/HomePage'
+import LoginPage from '@/pages/LoginPage'
+import SignupPage from '@/pages/SignupPage'
 
-function App() {
+export default function App() {
+  useAuth()
+
   return (
     <Routes>
-      <Route path="/" element={<div>홈 페이지</div>} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <HomePage />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   )
 }
-
-export default App
