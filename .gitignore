@@ -31,3 +31,6 @@ styled-system-studio
 .env
 .env.local
 .env.production
+
+# Claude 로컬 설정
+.claude/
